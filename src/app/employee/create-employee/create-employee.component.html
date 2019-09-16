@@ -3,7 +3,6 @@
 <p>You can provide custom property for display and selected value.</p>
 
 <div class="form-row" style="margin-top: 50px">
-
           <div class="col-xs-12 col-12 col-md-3 form-group">
             <label class="control-label">   Mr Date : </label>
             <input type="text" class="form-control form-control-sm" formControlName="dtMr" >
@@ -32,9 +31,17 @@
         <div class="col-md-6">
                 <button  type="button" class="btn btn-secondary btn-sm"  (click)="addItem()">Add</button>
             </div>
-
+<div class="col-md-4">
+  <ng-select [items]="cities"
+            bindLabel="name"
+            bindValue="id"
+            [closeOnSelect]="true"
+            [searchable]="true"
+            class="adjuster" formControlName="BinId">  </ng-select>
+</div>
+          
       <!-- {{mrEntryForm.controls.items.controls | json}} -->
-<div formArrayName="items" class="table-responsive">
+<div formArrayName="items">
 
         <table class="table table-sm table-bordered">
             <thead class="table-secondary" style="padding: 0">
@@ -52,7 +59,8 @@
                             <ng-select [items]="cities"
                             bindLabel="name"
                             bindValue="id"
-                            formControlName="ProductId">
+                            class="adjuster"
+                            formControlName="ProductId" >
                 </ng-select>
                     </td>
                     <td>
